@@ -2,10 +2,14 @@
 // php-crypto 0.1.1
 // https://github.com/bukka/php-crypto
 
+namespace Crypto;
+
+use Exception;
+
 /**
- * Alorithm class (parent of cipher and digest algorithms)
+ * Algorithm class (parent of cipher and digest algorithms)
  */
-class Crypto\Algorithm {
+class Algorithm {
     /**
      * Algorithm name
      * @var string
@@ -29,7 +33,7 @@ class Crypto\Algorithm {
 /**
  * Class providing cipher algorithms
  */
-class Crypto\Cipher extends Crypto\Algorithm {
+class Cipher extends Algorithm {
     const MODE_ECB = 1;
     const MODE_CBC = 2;
     const MODE_CFB = 3;
@@ -186,7 +190,7 @@ class Crypto\Cipher extends Crypto\Algorithm {
 /**
  * Class providing hash algorithms
  */
-class Crypto\Hash extends Crypto\Algorithm {
+class Hash extends Algorithm {
     /**
      * Returns hash algorithms
      * @param bool $aliases
@@ -251,7 +255,7 @@ class Crypto\Hash extends Crypto\Algorithm {
 /**
  * Exception class for algorithms errors
  */
-class Crypto\AlgorithmException extends Exception {
+class AlgorithmException extends Exception {
     const CIPHER_NOT_FOUND = 1;
     const CIPHER_MODE_NOT_FOUND = 2;
     const CIPHER_MODE_NOT_AVAILABLE = 3;
@@ -289,7 +293,7 @@ class Crypto\AlgorithmException extends Exception {
 /**
  * Class for base64 encoding and docoding
  */
-class Crypto\Base64 {
+class Base64 {
     /**
      * Encodes string $data to base64 encoding
      * @param string $data
@@ -313,7 +317,7 @@ class Crypto\Base64 {
      * Encodes block of characters from $data and saves the reminder of the last block to the encoding context
      * @param string $data
      */
-    public function encode($data) {}
+//    public function encode($data) {}
 
     /**
      * Encodes characters that left in the encoding context
@@ -324,7 +328,7 @@ class Crypto\Base64 {
      * Decodes block of characters from $data and saves the reminder of the last block to the encoding context
      * @param string $data
      */
-    public function decode($data) {}
+//    public function decode($data) {}
 
     /**
      * Decodes characters that left in the encoding context
@@ -336,7 +340,7 @@ class Crypto\Base64 {
 /**
  * Exception class for base64 errors
  */
-class Crypto\Base64Exception extends Exception {
+class Base64Exception extends Exception {
     const ENCODE_UPDATE_STATUS = 1;
     const ENCODE_FINISH_STATUS = 2;
     const DECODE_UPDATE_STATUS = 3;
@@ -348,7 +352,7 @@ class Crypto\Base64Exception extends Exception {
 /**
  * Class for generating random numbers
  */
-class Crypto\Rand {
+class Rand {
     /**
      * Generates pseudo random bytes
      * @param int $num
@@ -364,7 +368,7 @@ class Crypto\Rand {
      * @param float $entropy
      * @return null
      */
-    public static function seed($buf, $entropy = (float) strlen($buf)) {}
+    public static function seed($buf, $entropy) {}
 
     /**
      * Cleans up PRNG state
