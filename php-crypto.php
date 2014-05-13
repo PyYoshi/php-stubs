@@ -73,6 +73,14 @@ class Cipher extends Algorithm {
     public static function __callStatic($name, $arguments) {}
 
     /**
+     * Cipher::aes (magic method)
+     * @param int $mode
+     * @param string $key_size
+     * @return Cipher
+     */
+    public static function aes($mode = NULL, $key_size = NULL){}
+
+    /**
      * Cipher constructor
      * @param string $algorithm
      * @param int $mode
@@ -102,7 +110,7 @@ class Cipher extends Algorithm {
     public function encryptFinish() {}
 
     /**
-     * Enrypts text to ciphertext
+     * Encrypts text to ciphertext
      * @param string $data
      * @param string $key
      * @param string $iv
@@ -111,7 +119,7 @@ class Cipher extends Algorithm {
     public function encrypt($data, $key, $iv = null) {}
 
     /**
-     * Initializes cipher decription
+     * Initializes cipher decryption
      * @param string $key
      * @param string $iv
      * @return null
