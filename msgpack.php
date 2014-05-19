@@ -3,13 +3,13 @@
 // https://github.com/msgpack/msgpack-php
 
 /**
- * @param string $msg
+ * @param mixed $data
  * @return mixed
  */
-function msgpack_pack($msg){}
+function msgpack_pack($data){}
 
 /**
- * @param mixed $data
+ * @param string $data
  * @return string
  */
 function msgpack_unpack($data){}
